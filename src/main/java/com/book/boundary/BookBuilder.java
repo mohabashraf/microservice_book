@@ -6,21 +6,29 @@ import com.book.entity.Book;
 import com.book.entity.Specification;
 import org.jetbrains.annotations.NotNull;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import java.util.List;
+
+@RequestScoped
 public class BookBuilder {
 
-    private final BookFactory bookFactory = new BookFactory();
-    private final BookRepository bookRepository = new BookRepository();
+    @Inject
+    BookFactory bookFactory;
+
+    @Inject
+    BookRepository bookRepository;
 
     public Book bookBuilder(Specification specification){
 
         Book createdBook = bookFactory.createBook((specification));
         bookRepository.save();
         return createdBook;
+
     }
 
-    @NotNull
-    private Book createBook(Specification specification) {
-        return bookFactory.createBook(specification);
+    public List<Book> retrieveBooks(){
+        return BookRepository.loadBooks();
     }
 
 }
