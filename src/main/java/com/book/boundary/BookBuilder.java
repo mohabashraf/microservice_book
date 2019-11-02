@@ -14,7 +14,7 @@ public class BookBuilder {
     public Book bookBuilder(Specification specification){
 
         Book createdBook = bookFactory.createBook((specification));
-
+        bookRepository.save();
         return createdBook;
     }
 
