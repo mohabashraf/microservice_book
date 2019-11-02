@@ -7,6 +7,7 @@ import java.util.List;
 public class BookRepository {
 
     public static List<Book> loadBooks() {
+        return null;
     }
 
     public void save(){
