@@ -4,7 +4,6 @@ import com.book.control.BookFactory;
 import com.book.control.BookRepository;
 import com.book.entity.Book;
 import com.book.entity.Specification;
-import org.jetbrains.annotations.NotNull;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
