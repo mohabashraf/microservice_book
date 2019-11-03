@@ -3,8 +3,9 @@ package com.book.control;
 import com.book.entity.Book;
 import com.book.entity.Specification;
 
+import javax.enterprise.context.Dependent;
 import java.util.UUID;
-
+@Dependent
 public class BookFactory {
 
     public BookFactory() {

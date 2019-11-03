@@ -2,12 +2,14 @@ package com.book.control;
 
 import com.book.entity.Book;
 
+import javax.enterprise.context.Dependent;
 import java.util.List;
 
+@Dependent
 public class BookRepository {
 
-    public static List<Book> loadBooks() {
-        return null;
+    public BookRepository(){
+
     }
 
     public void save(){

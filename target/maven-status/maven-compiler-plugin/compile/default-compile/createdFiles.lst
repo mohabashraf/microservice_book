@@ -2,7 +2,6 @@ com/book/entity/Book.class
 com/book/boundary/BookResources.class
 com/book/boundary/BookBuilder.class
 com/book/control/BookRepository.class
-resources/book.class
 com/book/entity/Writer.class
 com/book/entity/Specification.class
 com/book/control/BookFactory.class

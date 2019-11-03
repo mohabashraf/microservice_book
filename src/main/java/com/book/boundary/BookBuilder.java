@@ -5,6 +5,8 @@ import com.book.control.BookRepository;
 import com.book.entity.Book;
 import com.book.entity.Specification;
 
+import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import java.util.List;
@@ -26,8 +28,6 @@ public class BookBuilder {
 
     }
 
-    public List<Book> retrieveBooks(){
-        return BookRepository.loadBooks();
-    }
+
 
 }
