@@ -15,7 +15,7 @@ public class BookFactory {
         Book book = new Book();
         book.setIdentifier(UUID.randomUUID().toString());
         book.setTitle(specification.getTitle());
-        book.setWriter(specification.getWriter());
         return book;
     }
+
 }

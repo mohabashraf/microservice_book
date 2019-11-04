@@ -1,10 +1,15 @@
 package com.book.entity;
 
+import javax.json.bind.annotation.JsonbAnnotation;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTransient;
+
 public class Book {
 
+    @JsonbTransient
     private String identifier;
+    @JsonbProperty("title")
     private String title;
-    private Writer writer;
 
 
     public String getIdentifier() {
@@ -23,11 +28,5 @@ public class Book {
         this.title = title;
     }
 
-    public Writer getWriter() {
-        return writer;
-    }
 
-    public void setWriter(Writer writer) {
-        this.writer = writer;
-    }
 }

@@ -2,23 +2,30 @@ package com.book.boundary;
 
 import com.book.control.BookFactory;
 import com.book.entity.Book;
+import com.book.entity.Specification;
+import com.sun.tools.classfile.ConstantPool;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+
+import javax.json.JsonObject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("book")
+@Path("books")
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResources {
 
     @Inject
-    BookFactory bookFactory;
+    BookBuilder bookBuilder;
 
     @GET
-    public String retrieveBooks(){
-        return "Hello World";
+    public List<Book> retrieveBooks(){
+        return bookBuilder.retrieveBooks();
+    }
+
+    @POST
+    public void createBook(JsonObject Object){
+        bookBuilder.bookBuilder(new Specification(Object.getString("title")));
     }
 }

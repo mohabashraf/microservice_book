@@ -8,10 +8,11 @@ import com.book.entity.Specification;
 import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import java.util.List;
 
-@RequestScoped
+@ApplicationScoped
 public class BookBuilder {
 
     @Inject
@@ -23,9 +24,13 @@ public class BookBuilder {
     public Book bookBuilder(Specification specification){
 
         Book createdBook = bookFactory.createBook((specification));
-        bookRepository.save();
+        bookRepository.save(createdBook);
         return createdBook;
 
+    }
+
+    public List<Book> retrieveBooks(){
+        return bookRepository.getBookRepo();
     }
 
 

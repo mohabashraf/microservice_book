@@ -2,20 +2,21 @@ package com.book.entity;
 
 public class Specification {
 
-    private final String title;
-    private final Writer writer;
+    private String title;
 
+    public Specification(){
 
-    public Specification(String title, Writer writer) {
+    }
+    public Specification(String title) {
         this.title = title;
-        this.writer = writer;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public Writer getWriter() {
-        return writer;
-    }
 }
