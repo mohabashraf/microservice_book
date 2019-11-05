@@ -2,13 +2,11 @@ package com.book.boundary;
 
 import com.book.control.BookFactory;
 import com.book.control.BookRepository;
+import com.book.control.BookCache;
 import com.book.entity.Book;
 import com.book.entity.Specification;
 
-import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -20,6 +18,9 @@ public class BookBuilder {
 
     @Inject
     BookRepository bookRepository;
+
+    @Inject
+    BookCache bookCache;
 
     public Book bookBuilder(Specification specification){
 
