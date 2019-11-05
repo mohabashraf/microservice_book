@@ -25,4 +25,11 @@ public class BookRepository {
         //..... add fuctionality call cloudant save
     }
 
+    public Book getBook(String identifier) {
+        for(Book book:bookRepo){
+            if(book.getIdentifier().equals(identifier))
+                return book;
+        }
+        return null;
+    }
 }

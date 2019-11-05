@@ -34,5 +34,7 @@ public class BookBuilder {
     }
 
 
-
+    public Book retrieveBook(String identifier) {
+        return bookRepository.getBook(identifier);
+    }
 }
