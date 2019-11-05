@@ -16,4 +16,8 @@ public class BookCache {
         return (List<Book>) cache.values();
     }
 
+    public void cache(Book book){
+        cache.put(book.getIdentifier(), book);
+    }
+
 }

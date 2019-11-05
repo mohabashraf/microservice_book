@@ -26,6 +26,7 @@ public class BookBuilder {
 
         Book createdBook = bookFactory.createBook((specification));
         bookRepository.save(createdBook);
+        bookCache.cache(createdBook);
         return createdBook;
 
     }
