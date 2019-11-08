@@ -23,9 +23,8 @@ public class BookRepository {
 
 
     public void save(Book book){
+
         bookCache.cache(book);
-        //..... add fuctionality call cloudant save
-        cloudant.addBook(book);
     }
 
     public Book getBook(String identifier) {

@@ -8,6 +8,7 @@ import com.cloudant.client.api.model.Response;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Dependent;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -34,8 +35,12 @@ public class Cloudant {
         db = client.database("book", false);
     }
 
-    public void addBook(Book book){
-       Response s =  db.save(book);
+    public String[] addBook(Book book){
+       String[] IdAndRevision = new String[2];
+       Response response =  db.save(book);
+       IdAndRevision[0] = response.getId();
+       IdAndRevision[1] = response.getRev();
+       return IdAndRevision;
     }
 
 

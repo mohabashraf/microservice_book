@@ -3,7 +3,7 @@ package com.book.domain;
 public class Specification {
 
     private String title;
-    private String author;
+    private String author   ;
     private String country;
     private String imageLink;
     private String language;

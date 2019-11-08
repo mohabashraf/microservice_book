@@ -7,6 +7,10 @@ public class Book {
 
     @JsonbTransient
     private String identifier;
+    @JsonbTransient
+    private String cloudantIdentifier;
+    @JsonbTransient
+    private String cloudantRevision;
     @JsonbProperty("author")
     private String author;
     @JsonbProperty("country")
@@ -96,5 +100,19 @@ public class Book {
         this.title = title;
     }
 
+    public String getCloudantIdentifier() {
+        return cloudantIdentifier;
+    }
 
+    public void setCloudantIdentifier(String cloudantIdentifier) {
+        this.cloudantIdentifier = cloudantIdentifier;
+    }
+
+    public String getCloudantRevision() {
+        return cloudantRevision;
+    }
+
+    public void setCloudantRevision(String cloudantRevision) {
+        this.cloudantRevision = cloudantRevision;
+    }
 }
