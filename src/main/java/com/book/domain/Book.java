@@ -8,7 +8,7 @@ public class Book {
     @JsonbTransient
     private String identifier;
     @JsonbProperty("author")
-    private String writer;
+    private String author;
     @JsonbProperty("country")
     private String country;
     @JsonbProperty("imageLink")
@@ -20,9 +20,9 @@ public class Book {
     @JsonbProperty("link")
     private String link;
     @JsonbProperty("pages")
-    private String numberOfPages;
+    private int numberOfPages;
     @JsonbProperty("year")
-    private String publishYear;
+    private int publishYear;
 
     public String getLanguage() {
         return language;
@@ -40,19 +40,19 @@ public class Book {
         this.link = link;
     }
 
-    public String getNumberOfPages() {
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(String numberOfPages) {
+    public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
 
-    public String getPublishYear() {
+    public int getPublishYear() {
         return publishYear;
     }
 
-    public void setPublishYear(String publishYear) {
+    public void setPublishYear(int publishYear) {
         this.publishYear = publishYear;
     }
 
@@ -61,7 +61,7 @@ public class Book {
     }
 
     public void setCountry(String country) {
-        country = country;
+        this.country = country;
     }
 
     public String getImageLink() {
@@ -72,12 +72,12 @@ public class Book {
         this.imageLink = imageLink;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWriter(String writer) {
-        writer = writer;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getIdentifier() {

@@ -18,21 +18,18 @@ public class BookBuilder {
 
     @Inject
     BookRepository bookRepository;
-//
-//    @Inject
-//    BookCache bookCache;
+
 
     public Book bookBuilder(Specification specification){
 
         Book createdBook = bookFactory.createBook((specification));
         bookRepository.save(createdBook);
-//        bookCache.cache(createdBook);
         return createdBook;
 
     }
 
     public List<Book> retrieveBooks(){
-        return bookRepository.getBookRepo();
+        return bookRepository.getBooks();
     }
 
 
@@ -40,9 +37,12 @@ public class BookBuilder {
         return bookRepository.getBook(identifier);
     }
 
-    public void updateBook(String identifier) {
+    public void updateBook(String identifier, Book book)
+    {
+        bookRepository.updateBook(identifier, book);
     }
 
-    void deleteBook(String identifier) {
+    public void deleteBook(String identifier) {
+        bookRepository.deleteBook(identifier);
     }
 }

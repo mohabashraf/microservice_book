@@ -1,4 +1,4 @@
-resources/Cloudant.class
+connection/Cloudant.class
 com/book/boundary/BookResources.class
 com/book/boundary/BookBuilder.class
 com/book/control/BookRepository.class

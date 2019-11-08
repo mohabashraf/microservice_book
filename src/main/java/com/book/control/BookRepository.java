@@ -1,35 +1,46 @@
 package com.book.control;
 
 import com.book.domain.Book;
+import connection.Cloudant;
 
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 @Dependent
 public class BookRepository {
 
-    List<Book> bookRepo= new ArrayList<Book>();
+    @Inject
+    BookCache bookCache;
+
+    @Inject
+    Cloudant cloudant;
 
     BookRepository(){
 
     }
 
-    public List<Book> getBookRepo() {
-        return bookRepo;
-    }
-
 
     public void save(Book book){
-        bookRepo.add(book);
+        bookCache.cache(book);
         //..... add fuctionality call cloudant save
+        cloudant.addBook(book);
     }
 
     public Book getBook(String identifier) {
-        for(Book book:bookRepo){
-            if(book.getIdentifier().equals(identifier))
-                return book;
-        }
-        return null;
+        return bookCache.getBook(identifier);
+    }
+
+    public List<Book> getBooks(){
+        return bookCache.BookList();
+    }
+
+    public void updateBook(String identifier, Book book) {
+        bookCache.updateBook(identifier, book);
+    }
+
+    public void deleteBook(String identifier) {
+        bookCache.deleteBook(identifier);
     }
 }

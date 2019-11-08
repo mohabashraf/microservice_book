@@ -2,7 +2,6 @@ package com.book.boundary;
 
 import com.book.domain.Book;
 import com.book.domain.Specification;
-import resources.Cloudant;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -24,14 +23,11 @@ public class BookResources {
     @Inject
     BookBuilder bookBuilder;
 
-    @Inject
-    Cloudant cloudant;
 
     @GET
     public Response retrieveBooks(){
         List<Book> retrieveBooks = bookBuilder.retrieveBooks();
-        List<String> retrieveDatabse = cloudant.testDatabase();
-        return Response.ok(cloudant.testDatabase()).build();
+        return Response.ok(retrieveBooks).build();
     }
 
     @GET
@@ -43,7 +39,11 @@ public class BookResources {
 
     @POST
     public Response createBook(JsonObject Object){
-        Book book = bookBuilder.bookBuilder(new Specification(Object.getString("title")));
+        Book book = bookBuilder.bookBuilder(new Specification(Object.getString("title"),
+                Object.getString("author"), Object.getString("country"),
+                Object.getString("imageLink"), Object.getString("language"),
+                Object.getString("link"), Object.getInt("pages"),
+                Object.getInt("year")));
         URI uri = uriInfo.getBaseUriBuilder()
                     .path(BookResources.class)
                     .path(BookResources.class, "retrieveBook")
@@ -55,8 +55,8 @@ public class BookResources {
 
     @PUT
     @Path("{id}")
-    public Response updateBook(@PathParam("id") String identifier){
-        bookBuilder.updateBook(identifier);
+    public Response updateBook(@PathParam("id") String identifier, Book book){
+        bookBuilder.updateBook(identifier, book);
         return Response.ok().build();
     }
 

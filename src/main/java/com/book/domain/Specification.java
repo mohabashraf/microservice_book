@@ -3,21 +3,21 @@ package com.book.domain;
 public class Specification {
 
     private String title;
-    private String writer;
+    private String author;
     private String country;
     private String imageLink;
     private String language;
     private String link;
-    private String numberOfPages;
-    private String publishYear;
+    private int numberOfPages;
+    private int publishYear;
 
     public Specification(){
 
     }
-    public Specification(String title, String writer, String country,
+    public Specification(String title, String author, String country,
                          String imageLink, String language, String link,
-                         String numberOfPages, String publishYear) {
-                            this.writer = writer;
+                         int numberOfPages, int publishYear) {
+                            this.author = author;
                             this.country = country;
                             this.title = title;
                             this.imageLink = imageLink;
@@ -27,6 +27,7 @@ public class Specification {
                             this.publishYear = publishYear;
     }
 
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -35,12 +36,12 @@ public class Specification {
         return title;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getCountry() {
@@ -75,19 +76,19 @@ public class Specification {
         this.link = link;
     }
 
-    public String getNumberOfPages() {
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(String numberOfPages) {
+    public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
 
-    public String getPublishYear() {
+    public int getPublishYear() {
         return publishYear;
     }
 
-    public void setPublishYear(String publishYear) {
+    public void setPublishYear(int publishYear) {
         this.publishYear = publishYear;
     }
 }
