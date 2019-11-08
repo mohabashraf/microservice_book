@@ -1,11 +1,10 @@
 package com.book.boundary;
 
-import com.book.control.BookFactory;
-import com.book.entity.Book;
-import com.book.entity.Specification;
-import com.sun.jndi.toolkit.url.Uri;
-import com.sun.tools.classfile.ConstantPool;
+import com.book.domain.Book;
+import com.book.domain.Specification;
+import resources.Cloudant;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import javax.json.JsonObject;
@@ -16,6 +15,7 @@ import java.util.List;
 
 @Path("books")
 @Produces(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class BookResources {
 
     @Context
@@ -24,10 +24,14 @@ public class BookResources {
     @Inject
     BookBuilder bookBuilder;
 
+    @Inject
+    Cloudant cloudant;
+
     @GET
     public Response retrieveBooks(){
         List<Book> retrieveBooks = bookBuilder.retrieveBooks();
-        return Response.ok(bookBuilder.retrieveBooks()).build();
+        List<String> retrieveDatabse = cloudant.testDatabase();
+        return Response.ok(cloudant.testDatabase()).build();
     }
 
     @GET
@@ -58,7 +62,7 @@ public class BookResources {
 
     @DELETE
     @Path("{id}")
-    public Response updateBook(@PathParam("id") String identifier){
+    public Response deleteBook(@PathParam("id") String identifier){
         bookBuilder.deleteBook(identifier);
         return Response.ok().build();
     }

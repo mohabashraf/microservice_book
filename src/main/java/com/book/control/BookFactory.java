@@ -1,7 +1,7 @@
 package com.book.control;
 
-import com.book.entity.Book;
-import com.book.entity.Specification;
+import com.book.domain.Book;
+import com.book.domain.Specification;
 
 import javax.enterprise.context.Dependent;
 import java.util.UUID;

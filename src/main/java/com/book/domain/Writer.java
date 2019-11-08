@@ -1,4 +1,4 @@
-package com.book.entity;
+package com.book.domain;
 
 public class Writer {
 

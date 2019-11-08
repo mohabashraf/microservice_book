@@ -1,8 +1,10 @@
-com/book/entity/Book.class
+resources/Cloudant.class
 com/book/boundary/BookResources.class
 com/book/boundary/BookBuilder.class
 com/book/control/BookRepository.class
-com/book/entity/Writer.class
-com/book/entity/Specification.class
+com/book/domain/Specification.class
+com/book/domain/Writer.class
+com/book/domain/Book.class
 com/book/control/BookFactory.class
+com/book/control/BookCache.class
 com/book/JAXRSConfiguration.class

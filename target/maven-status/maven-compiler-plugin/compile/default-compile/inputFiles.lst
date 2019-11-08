@@ -1,8 +1,10 @@
+/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/domain/Book.java
 /home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/boundary/BookBuilder.java
-/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/entity/Writer.java
 /home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/JAXRSConfiguration.java
 /home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/control/BookRepository.java
 /home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/boundary/BookResources.java
 /home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/control/BookFactory.java
-/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/entity/Specification.java
-/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/entity/Book.java
+/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/resources/Cloudant.java
+/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/control/BookCache.java
+/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/domain/Specification.java
+/home/mohab/microprofile/guide-rest-client-java/book/src/main/java/com/book/domain/Writer.java

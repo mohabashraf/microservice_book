@@ -1,6 +1,6 @@
 package com.book.control;
 
-import com.book.entity.Book;
+import com.book.domain.Book;
 
 import javax.enterprise.context.Dependent;
 import java.util.ArrayList;
