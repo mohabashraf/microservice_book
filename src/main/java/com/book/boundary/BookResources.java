@@ -25,8 +25,16 @@ public class BookResources {
     BookBuilder bookBuilder;
 
     @GET
-    public List<Book> retrieveBooks(){
-        return bookBuilder.retrieveBooks();
+    public Response retrieveBooks(){
+        List<Book> retrieveBooks = bookBuilder.retrieveBooks();
+        return Response.ok(bookBuilder.retrieveBooks()).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response retrieveBook(@PathParam("id") String identifier){
+        Book book = bookBuilder.retrieveBook(identifier);
+        return Response.ok(book).build();
     }
 
     @POST
@@ -40,9 +48,19 @@ public class BookResources {
         return Response.created(uri).build();
     }
 
-    @GET
+
+    @PUT
     @Path("{id}")
-    public Book retrieveBook(@PathParam("id") String identifier){
-        return bookBuilder.retrieveBook(identifier);
+    public Response updateBook(@PathParam("id") String identifier){
+        bookBuilder.updateBook(identifier);
+        return Response.ok().build();
     }
+
+    @DELETE
+    @Path("{id}")
+    public Response updateBook(@PathParam("id") String identifier){
+        bookBuilder.deleteBook(identifier);
+        return Response.ok().build();
+    }
+
 }
